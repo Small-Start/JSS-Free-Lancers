@@ -1,0 +1,9 @@
+<%= form_for Post.new do |f|%>
+<%=f.text_field :title, :placeholder => 'Title'%>
+<%=f.text_field :description, :placeholder => 'Description'%>
+<%=f.text_field :category, :placeholder => 'Category'%>
+<%if user_signed_in? %>
+<%=f.hidden_field :user_id,:value => current_user.id%>
+<%end%>
+	<%=f.submit%>
+	<%end%>
