@@ -1,0 +1,5 @@
+<h1>List of all available posts</h1>
+<%@post.each do |p| %>
+<a href="<%=p.id%>"><b><%=p.title%></b></a>
+<br/>
+<%end%>

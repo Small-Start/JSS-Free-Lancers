@@ -1,0 +1,18 @@
+<p> Welcome <b><%=current_user.full_name%></b>!</p>
+<!-- <h2>List of Available Tasks</h2> -->
+<h1><%=@post.title%></h1>
+<h2>category: <%=@post.category%></h2>
+<p><b>Description:</b> <%=@post.description%>
+</p>
+<%if @post.assigned_to!=nil %>
+<h3>This task is assigned to <%=@post.assigned_to%></h3>
+<%else%>
+<a href="apply">Apply for this task</a>
+<%end%>
+<script>
+// $("#apply").click(function(){
+//     $.ajax({url: "apply", success: function(result){
+//         $("#div1").json(result);
+//     }});
+// });
+// </script>
