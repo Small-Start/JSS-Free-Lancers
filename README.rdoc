@@ -1,4 +1,4 @@
-== README
+== JSS-FREE-LANCERS
 
 {<img src="https://badges.gitter.im/Small-Start/JSS-Free-Lancers.svg" alt="Join the chat at https://gitter.im/Small-Start/JSS-Free-Lancers">}[https://gitter.im/Small-Start/JSS-Free-Lancers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge]
 
