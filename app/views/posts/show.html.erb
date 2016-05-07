@@ -1,4 +1,6 @@
+<%if user_signed_in? %>
 <p> Welcome <b><%=current_user.full_name%></b>!</p>
+<%end%>
 <!-- <h2>List of Available Tasks</h2> -->
 <h1><%=@post.title%></h1>
 <h2>category: <%=@post.category%></h2>
