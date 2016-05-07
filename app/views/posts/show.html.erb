@@ -9,7 +9,7 @@
 <%if @post.assigned_to!=nil %>
 <h3>This task is assigned to <%=@post.assigned_to%></h3>
 <%else%>
-<a href="apply">Apply for this task</a>
+<a href="/posts/<%=params[:id]%>/apply">Apply for this task</a>
 <%end%>
 <script>
 // $("#apply").click(function(){

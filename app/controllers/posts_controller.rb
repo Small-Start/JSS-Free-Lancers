@@ -1,5 +1,4 @@
 	class PostsController < ApplicationController
-		$post=Post.new
 		def create
 	 		@post=Post.new(post_params)
 	 	 	 if @post.save
@@ -10,12 +9,11 @@
 	 	end
  	def apply
  		if user_signed_in?
- 			@post=$post
- 			@post.assigned_to=current_user.full_name
- 			@post.save
- 			redirect_to :back
+ 			Request.create(user_id: current_user.id, post_id: params[:id])
+ 			flash[:alert]="Your request has been sent"
+  			redirect_to list_path
  		else
- 			redirect_to new_user_session_path
+ 		 	redirect_to new_user_session_path
  		end
  	end
  	def post_params
@@ -23,9 +21,10 @@
  	end
  	def show
  		@post=Post.find(params[:id])
- 		$post=@post
  	end
  	def list
  		@post=Post.all
+ 	end
+ 	def own
  	end
 end
