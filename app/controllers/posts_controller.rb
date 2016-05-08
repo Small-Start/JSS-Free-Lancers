@@ -20,7 +20,11 @@
  		params.require(:post).permit(:title,:description,:category,:user_id)
  	end
  	def show
+ 		if user_signed_in?
  		@post=Post.find(params[:id])
+ 	else
+ 		redirect_to new_user_session_path
+ 	end
  	end
  	def list
  		@post=Post.all
