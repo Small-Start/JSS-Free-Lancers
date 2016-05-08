@@ -27,4 +27,10 @@
  	end
  	def own
  	end
+ 	def authorize
+ 		@post=Post.find(params[:post_id])
+ 		@post.assigned_to=params[:user_id]
+ 		@post.save
+ 		redirect_to :back
+ 	end
 end

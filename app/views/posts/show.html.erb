@@ -7,9 +7,18 @@
 <p><b>Description:</b> <%=@post.description%>
 </p>
 <%if @post.assigned_to!=nil %>
-<h3>This task is assigned to <%=@post.assigned_to%></h3>
+<h3>This task is assigned to <%=User.find(@post.assigned_to.to_i).full_name%></h3>
 <%else%>
-<a href="/posts/<%=params[:id]%>/apply">Apply for this task</a>
+<% if current_user.id==Post.find(params[:id]).user_id%>
+<h3>Pending Requsets</h3>
+<%Request.all.each do |req|
+	if req.post_id==params[:id].to_i%>
+		<p><%=User.find(req.user_id).full_name%> <%=link_to "Authorize", controller: "posts",action: "authorize", post_id: req.post_id, user_id: req.user_id%></p>
+		<%end%>
+	<%end%>
+<%else%>
+<a href="/posts/<%=params[:id]%>/apply">Apply for this task</a> 
+<%end%>
 <%end%>
 <script>
 // $("#apply").click(function(){
