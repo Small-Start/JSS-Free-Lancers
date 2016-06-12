@@ -33,8 +33,12 @@
  	end
  	def authorize
  		@post=Post.find(params[:post_id])
- 		@post.assigned_to=params[:user_id]
- 		@post.save
+ 		if current_user.id==@post.user_id
+ 			@post.assigned_to=params[:user_id]
+ 			@post.save
+ 		else
+ 			flash[:alert]="You are not authorized to perform this task"
+ 		end
  		redirect_to :back
  	end
 end
