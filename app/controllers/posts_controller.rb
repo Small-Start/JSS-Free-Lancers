@@ -1,44 +1,50 @@
 	class PostsController < ApplicationController
+		before_action :set_post, only: [:show, :apply] 
+
 		def create
-	 		@post=Post.new(post_params)
-	 	 	 if @post.save
-	 	 	 	redirect_to root_path
-	 	 	 else
-	 	 	 	render json: {"error":"post not saved"}
-	 	 	 end
+	 		@post = Post.new(title: params[:title], description: params[:description], category: params[:category], user_id: params[:user_id])
+
+	 		if @post.save
+	 			render json: @post.to_json
+	 		else
+	 			render json: @post.errors.to_json 
+	 		end
 	 	end
  	def apply
  		if user_signed_in?
- 			Request.create(user_id: current_user.id, post_id: params[:id])
- 			flash[:alert]="Your request has been sent"
-  			redirect_to list_path
+ 			req = Request.new(user_id: current_user.id, post_id: params[:id])
+ 			if req.save
+  			render json: @post.to_json
+ 			else
+ 			render json: {"status":"failed"}
+ 			end
  		else
- 		 	redirect_to new_user_session_path
+ 			render json: {"error":"not authorised"}
  		end
+
  	end
- 	def post_params
- 		params.require(:post).permit(:title,:description,:category,:user_id)
- 	end
+
  	def show
- 		if user_signed_in?
- 		@post=Post.find(params[:id])
- 	else
- 		redirect_to new_user_session_path
+ 		render json: @post
  	end
- 	end
- 	def list
- 		@post=Post.all
+ 	def index
+ 		render json: Post.all.to_json
  	end
  	def own
  	end
  	def authorize
- 		@post=Post.find(params[:post_id])
  		if current_user.id==@post.user_id
  			@post.assigned_to=params[:user_id]
  			@post.save
+ 			render json: {"status":"ok"}, status: 200
  		else
- 			flash[:alert]="You are not authorized to perform this task"
+ 			render json: { "error":"not authorised"}, status: 401
  		end
- 		redirect_to :back
+ 	end
+
+ 	private
+
+ 	def set_post
+ 		@post=Post.find(params[:id])
  	end
 end
