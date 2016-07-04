@@ -5,6 +5,78 @@ A platform for jss students to work in collaboration with each other by helping 
 ## Rails Version
 Version of rails used in this project is 4.2.2 .A gem file containing the version numbers of each gem used in this application is present. 
 
+##Using the API
+
+###To get the list of all tasks available:
+     
+     GET /posts
+        
+Example:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Task #1",
+    "description": "lorem ipsum",
+    "assigned_to": 2,
+    "category": "front-end development",
+    "user_id": 1,
+    "created_at": "2016-07-04T19:59:28.800Z",
+    "updated_at": "2016-07-04T19:59:28.800Z"
+  },
+  {
+    "id": 2,
+    "title": "Task #2",
+    "description": "lorem ipsum",
+    "assigned_to": null,
+    "category": "Testing",
+    "user_id": 98,
+    "created_at": "2016-07-04T20:01:08.048Z",
+    "updated_at": "2016-07-04T20:01:08.048Z"
+    },
+]
+```
+
+###To publish a new task:
+     
+     POST /posts
+
+Example Request: 
+    
+     /posts?title=java%20debug&&description=debugging%20in%20java
+
+Example response:
+```json
+{
+  "id": 14,
+  "title": "java debug",
+  "description": "debugging in java",
+  "assigned_to": null,
+  "category": null,
+  "user_id": 3,
+  "created_at": "2016-07-04T22:12:16.290Z",
+  "updated_at": "2016-07-04T22:12:16.290Z"
+}
+```
+To show details about a specific tasks:
+      
+     GET /posts/:id
+
+Example response:
+```json
+{
+  "id": 14,
+  "title": "java debug",
+  "description": "debugging in java",
+  "assigned_to": null,
+  "category": null,
+  "user_id": 3,
+  "created_at": "2016-07-04T22:12:16.290Z",
+  "updated_at": "2016-07-04T22:12:16.290Z"
+}
+```
+
 ##Installation
 
 To install rails in linux based system follow the following guide: http://railsapps.github.io/installrubyonrails-ubuntu.html
