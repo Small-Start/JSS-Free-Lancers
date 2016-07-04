@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'views#index'
-  get 'posts/authorize' => 'posts#authorize'
+  get 'posts/:id/authorize' => 'posts#authorize'
   get 'posts/own' => 'posts#own'
   get 'posts/:id/apply' => 'posts#apply'
   get 'posts/list' => 'posts#list', as: :list
