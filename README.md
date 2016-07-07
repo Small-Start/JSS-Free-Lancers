@@ -1,6 +1,6 @@
 #JSS-free-lancers
 
-A platform for jss students to work in collaboration with each other by helping each other to complete various tasks posted by students of jss themselves. It will help students and mentors to work efficiently and increase productivity. 
+A platform for students to work in collaboration with each other by helping each other to complete various tasks posted by students themselves. It will help students and mentors to work efficiently and increase productivity. 
 
 ## Rails Version
 Version of rails used in this project is 4.2.2 .A gem file containing the version numbers of each gem used in this application is present. 
@@ -90,7 +90,7 @@ Follow the following steps to setup development environment and start contibutin
 1. Initialise the folder by command:     
          git init
 
-1. Clone the repository by going to your root folder and run command:     
+1. Clone the repository and run command:     
          git clone https://github.com/Small-Start/JSS-Free-Lancers.git JFL
 
 2. Move inside the directory of JFL:
