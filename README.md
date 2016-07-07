@@ -89,7 +89,7 @@ Follow the following steps to setup development environment and start contibutin
 
 1. Clone the repository by running the following command:     
   
-         git clone https://github.com/JSS_OSDC/JSS-Free-Lancers.git JFL
+         git clone https://github.com/Small-Start/JSS-Free-Lancers.git
 
 2. Move inside the directory of JFL:
          
