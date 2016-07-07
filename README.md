@@ -87,8 +87,10 @@ Follow the following steps to setup development environment and start contibutin
 
 ##Setup jss-free-lancers in development environment for linux
 
+1. Initialise the folder by command:     
+         git init
+
 1. Clone the repository by going to your root folder and run command:     
-         git init 
          git clone https://github.com/Small-Start/JSS-Free-Lancers.git JFL
 
 2. Move inside the directory of JFL:
